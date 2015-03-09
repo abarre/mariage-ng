@@ -17,6 +17,10 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'active_model_serializers'
+
+gem "activerecord-enum-without-methods", "~>1.0.0"
+
+gem 'date_validator'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -37,9 +41,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.1.0'
-end
 
-group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
 end
