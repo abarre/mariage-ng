@@ -3,5 +3,7 @@ Rails.application.routes.draw do
     resources :plannings, defaults: { format: :json } do
       resources :tasks
     end
+
+    resources :weddings
   end
 end
