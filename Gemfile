@@ -11,7 +11,10 @@ gem 'grape', '~> 0.13.0'
 
 # api documentation
 gem 'grape-swagger', '~> 0.10.0'
-gem 'grape-swagger-rails'
+gem 'grape-swagger-rails', '~> 0.1.0'
+
+# CORS Support
+gem 'rack-cors', :require => 'rack/cors'
 
 # disables the security feature of strong_params at the model layer,
 #allowing you the use of Grape's own params validation instead

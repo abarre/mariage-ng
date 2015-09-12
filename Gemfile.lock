@@ -115,6 +115,7 @@ GEM
     rack (1.6.0)
     rack-accept (0.4.5)
       rack (>= 0.4)
+    rack-cors (0.4.0)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
     rack-test (0.6.3)
@@ -201,8 +202,9 @@ DEPENDENCIES
   factory_girl_rails
   grape (~> 0.13.0)
   grape-swagger (~> 0.10.0)
-  grape-swagger-rails
+  grape-swagger-rails (~> 0.1.0)
   hashie-forbidden_attributes
+  rack-cors
   rails (= 4.2.0)
   rspec-rails (~> 3.1.0)
   spring
