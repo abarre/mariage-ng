@@ -9,6 +9,10 @@ gem 'sqlite3'
 # api engine
 gem 'grape', '~> 0.13.0'
 
+# api documentation
+gem 'grape-swagger', '~> 0.10.0'
+gem 'grape-swagger-rails'
+
 # disables the security feature of strong_params at the model layer,
 #allowing you the use of Grape's own params validation instead
 gem "hashie-forbidden_attributes"
