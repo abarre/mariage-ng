@@ -6,9 +6,17 @@ gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
-gem 'active_model_serializers'
-gem "activerecord-enum-without-methods", "~>1.0.0"
+# api engine
+gem 'grape', '~> 0.13.0'
 
+# disables the security feature of strong_params at the model layer,
+#allowing you the use of Grape's own params validation instead
+gem "hashie-forbidden_attributes"
+
+gem 'active_model_serializers'
+
+# required by the models
+gem "activerecord-enum-without-methods", "~>1.0.0"
 gem 'date_validator'
 
 gem 'annotate'
