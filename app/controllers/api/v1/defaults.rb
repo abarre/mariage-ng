@@ -14,6 +14,11 @@ module API
           error_response(message: e.message, status: 404)
         end
 
+        # global handler for simple record invalid case
+        rescue_from ActiveRecord::RecordInvalid do |e|
+          error_response(message: e.message, status: 422)
+        end
+
         # global exception handler, used for error notifications
         rescue_from :all do |e|
           if Rails.env.development?
