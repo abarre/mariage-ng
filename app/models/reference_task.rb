@@ -1,3 +1,27 @@
+# == Schema Information
+#
+# Table name: reference_tasks
+#
+#  id                             :integer          not null, primary key
+#  name                           :string
+#  comment                        :text
+#  theme_id                       :integer
+#  assigned_person                :integer
+#  wedding_in_more_than_12_months :integer
+#  wedding_in_12_months           :integer
+#  wedding_in_11_months           :integer
+#  wedding_in_10_months           :integer
+#  wedding_in_9_months            :integer
+#  wedding_in_8_months            :integer
+#  wedding_in_7_months            :integer
+#  wedding_in_6_months            :integer
+#  wedding_in_5_months            :integer
+#  wedding_in_4_months            :integer
+#  wedding_in_3_months            :integer
+#  wedding_in_2_months            :integer
+#  wedding_in_1_month             :integer
+#
+
 class ReferenceTask < ActiveRecord::Base
 	enum assigned_person: [:couple, :bride, :groom]
 

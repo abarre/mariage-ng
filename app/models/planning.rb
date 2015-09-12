@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: plannings
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  wedding_id :integer
+#
+
 class Planning < ActiveRecord::Base
 	has_many :tasks
 	belongs_to :wedding

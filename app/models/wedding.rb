@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: weddings
+#
+#  id       :integer          not null, primary key
+#  date     :date
+#  groom_id :integer
+#  bride_id :integer
+#
+
 class Wedding < ActiveRecord::Base
   belongs_to :planning
   belongs_to :groom, class_name: "Person", autosave: true

@@ -11,6 +11,8 @@ gem "activerecord-enum-without-methods", "~>1.0.0"
 
 gem 'date_validator'
 
+gem 'annotate'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
