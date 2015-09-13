@@ -7,6 +7,10 @@
 #  updated_at :datetime         not null
 #  wedding_id :integer
 #
+# Indexes
+#
+#  index_plannings_on_wedding_id  (wedding_id)
+#
 
 class Planning < ActiveRecord::Base
 	has_many :tasks

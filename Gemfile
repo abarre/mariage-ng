@@ -17,6 +17,8 @@ gem 'grape-kaminari', '~> 0.1.0'
 # CORS Support
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'devise', '~> 3.5.2'
+
 # disables the security feature of strong_params at the model layer,
 #allowing you the use of Grape's own params validation instead
 gem "hashie-forbidden_attributes"

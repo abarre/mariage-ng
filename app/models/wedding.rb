@@ -7,6 +7,11 @@
 #  groom_id :integer
 #  bride_id :integer
 #
+# Indexes
+#
+#  index_weddings_on_bride_id  (bride_id)
+#  index_weddings_on_groom_id  (groom_id)
+#
 
 class Wedding < ActiveRecord::Base
   belongs_to :planning

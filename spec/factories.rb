@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :user do
+    email "MyString"
+    name "MyString"
+    firstname "MyString"
+  end
+
   factory :groom, class: Person do
   	name "Groom guy"
   end
