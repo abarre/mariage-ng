@@ -1,3 +1,5 @@
+require 'doorkeeper/grape/helpers'
+
 module API
   module V1
     module Defaults
@@ -6,6 +8,13 @@ module API
 
       included do
         include Grape::Kaminari
+
+        helpers Doorkeeper::Grape::Helpers
+
+        before do
+          doorkeeper_authorize!
+        end
+
         # common Grape settings
         version 'v1'
         format :json

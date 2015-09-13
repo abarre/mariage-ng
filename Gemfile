@@ -14,10 +14,14 @@ gem 'grape-swagger', '~> 0.10.0'
 gem 'grape-swagger-rails', '~> 0.1.0'
 gem 'grape-kaminari', '~> 0.1.0'
 
+# authentification Oauth
+gem 'devise', '~> 3.5.2'
+gem 'doorkeeper', '~> 3.0.0'
+
 # CORS Support
 gem 'rack-cors', :require => 'rack/cors'
 
-gem 'devise', '~> 3.5.2'
+
 
 # disables the security feature of strong_params at the model layer,
 #allowing you the use of Grape's own params validation instead
