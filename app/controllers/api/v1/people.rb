@@ -6,8 +6,9 @@ module API
 
       resource :people do
         desc "Return list of people"
+        paginate
         get do
-          Person.all
+          paginate Person.all
         end
       end
     end

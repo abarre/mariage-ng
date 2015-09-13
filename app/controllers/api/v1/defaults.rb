@@ -5,6 +5,7 @@ module API
       extend ActiveSupport::Concern
 
       included do
+        include Grape::Kaminari
         # common Grape settings
         version 'v1'
         format :json
