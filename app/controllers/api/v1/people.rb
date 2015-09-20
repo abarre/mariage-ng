@@ -1,4 +1,3 @@
-# lib/api/v1/posts.rb
 module API
   module V1
     class People < Grape::API
