@@ -11,7 +11,6 @@ gem 'grape', '~> 0.13.0'
 
 # api documentation
 gem 'grape-swagger', '~> 0.10.0'
-gem 'grape-swagger-rails', '~> 0.1.0'
 gem 'grape-kaminari', '~> 0.1.0'
 
 # authentification Oauth
