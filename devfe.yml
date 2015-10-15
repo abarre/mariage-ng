@@ -1,0 +1,112 @@
+---
+:params:
+  :firewall:
+    :whitelist:
+    - 192.168.56.1
+  :zookeeper_secured: false
+  :default_cloud_provider: :vagrant
+  :zookeeper_ready: true
+  :zookeeper_use_ssh:
+    :chef: false
+    :default: false
+  :secure_ip_mask: 255.255.0.0
+  :zookeeper_port: 2181
+  :secure_ip_network: 10.1.0.0
+web01-devfe:
+  :dns: web01-devfe.fstrz.net
+  :type: linux
+  :hostname: web01-devfe
+  :enabled: true
+  :memory_size: 513777664
+  :roles:
+  - FastApi
+  - Bstats
+  - Web
+  - WebWorker
+  - WebDatabase
+  :public_ip: 192.168.56.12
+  :vagrant_memory: 512
+  :secure_ip: 10.1.0.3
+  :cpu_count: 1
+cache01-devfe:
+  :dns: cache01-devfe.fstrz.net
+  :hostname: cache01-devfe
+  :type: linux
+  :enabled: true
+  :memory_size: 778002432
+  :roles:
+  - Cache
+  - MongoDB
+  - ZookeeperServer
+  - Backup
+  - MemStorage
+  - SSL
+  :public_ip: 192.168.56.11
+  :vagrant_memory: 768
+  :additional_ips:
+  - 192.168.56.21
+  :secure_ip: 10.1.0.5
+  :mode: production
+  :cpu_count: 1
+graphite01-devfe:
+  :dns: graphite01-devfe.fstrz.net
+  :hostname: graphite01-devfe
+  :type: linux
+  :enabled: true
+  :memory_size: 778002432
+  :roles:
+  - Graphite
+  - LogstashServer
+  - Monitoring
+  :public_ip: 192.168.56.13
+  :vagrant_memory: 768
+  :secure_ip: 10.1.0.10
+  :cpu_count: 1
+jenkins-devfe:
+  :dns: jenkins-devfe.fstrz.net
+  :type: linux
+  :roles:
+  - Jenkins
+  :public_ip: 192.168.56.14
+  :vagrant_memory: 512
+  :secure_ip: 10.1.0.1
+proxy01-devfe:
+  :dns: proxy01-devfe.fstrz.net
+  :hostname: proxy01-devfe
+  :type: linux
+  :enabled: true
+  :memory_size: 778002432
+  :roles:
+  - Proxy
+  :public_ip: 192.168.56.15
+  :vagrant_memory: 512
+  :secure_ip: 10.1.0.11
+  :cpu_count: 1
+worker01-devfe:
+  :dns: worker01-devfe.fstrz.net
+  :hostname: worker01-devfe
+  :type: linux
+  :enabled: true
+  :memory_size: 778002432
+  :roles:
+  - Worker
+  :public_ip: 192.168.56.16
+  :vagrant_memory: 512
+  :secure_ip: 10.1.0.12
+  :cpu_count: 1
+
+local-devfe:
+  :type: linux
+  :enabled: true
+  :roles:
+  - Testerize
+  - Worker
+  - Proxy
+  :config:
+    fasterize_engine:
+      proxy:
+        nb_workers: 2
+  :public_ip: 192.168.56.1
+  :secure_ip: 10.1.0.4
+  :disable_ssh: true
+  :vagrant_ignore: true

@@ -1,0 +1,285 @@
+---
+mongo01-dev:
+  :type: linux
+  :vagrant_memory: 512
+  :hostname: mongo01-dev
+  :secure_ip: 10.0.0.1
+  :memory_size: 513806336
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.162
+  :roles:
+  - MemStorage
+  - MongoDB
+  :dns: mongo01-dev.fstrz.net
+web02-dev:
+  :type: linux
+  :vagrant_memory: 512
+  :hostname: web02-dev
+  :secure_ip: 10.0.0.2
+  :memory_size: 521031680
+  :private_ip: 192.168.56.182
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.182
+  :roles:
+  - Web
+  - WebWorker
+  - FastApi
+  - Bstats
+  :dns: web02-dev.fstrz.net
+logstash01-dev:
+  :type: linux
+  :vagrant_memory: 512
+  :hostname: logstash01-dev
+  :secure_ip: 10.0.0.14
+  :memory_size: 521031680
+  :private_ip: 192.168.56.231
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.231
+  :roles:
+  - LogstashServer
+  :dns: logstash01-dev.fstrz.net
+bstats-dev:
+  :type: service
+  :private_broadcast_ip: 192.168.56.255
+  :public_broadcast_ip: 192.168.57.255
+  :private_ip: 192.168.56.105
+  :enabled: true
+  :public_ip: 192.168.57.185
+  :roles:
+  - BstatsService
+  :dns: bstats-dev.fstrz.net
+front02-dev:
+  :type: linux
+  :vagrant_memory: 256
+  :secure_ip: 10.0.0.8
+  :private_ip: 192.168.57.152
+  :enabled: true
+  :public_ip: 192.168.56.152
+  :roles:
+  - Front
+  - WebLoadBalancerSlave
+  - BstatsLoadBalancerSlave
+  - APILoadBalancerSlave
+  - SSL
+  :dns: front02-dev.fstrz.net
+mongo03-dev:
+  :type: linux
+  :vagrant_memory: 512
+  :hostname: mongo03-dev
+  :flavor: N/A
+  :secure_ip: 10.0.0.12
+  :memory_size: 513806336
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.164
+  :roles:
+  - MemStorage
+  - MongoDB
+  :dns: mongo03-dev.fstrz.net
+graphite01-dev:
+  :type: linux
+  :vagrant_memory: 256
+  :hostname: graphite01-dev
+  :secure_ip: 10.0.0.15
+  :memory_size: 249577472
+  :private_ip: 192.168.56.213
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.213
+  :roles:
+  - Graphite
+  :dns: graphite01-dev.fstrz.net
+worker01-dev:
+  :type: linux
+  :vagrant_memory: 512
+  :hostname: worker01-dev
+  :secure_ip: 10.0.0.4
+  :memory_size: 513777664
+  :private_ip: 192.168.56.171
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.171
+  :roles:
+  - Worker
+  :dns: worker01-dev.fstrz.net
+:params:
+  :secure_ip_mask: 255.255.0.0
+  :firewall:
+    :whitelist:
+    - 192.168.56.1
+  :zookeeper_use_ssh:
+    :chef: false
+    :default: false
+  :zookeeper_ready: true
+  :default_cloud_provider: :vagrant
+  :secure_ip_network: 10.1.0.0
+  :zookeeper_port: 2181
+  :zookeeper_secured: false
+test01-dev:
+  :type: linux
+  :vagrant_memory: 512
+  :hostname: test01-dev
+  :secure_ip: 10.0.0.10
+  :memory_size: 513777664
+  :private_ip: 192.168.56.211
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.211
+  :roles:
+  - Testerize
+  - ZookeeperServer
+  :dns: test01-dev.fstrz.net
+monitoring01-dev:
+  :type: linux
+  :vagrant_memory: 256
+  :hostname: monitoring01-dev
+  :secure_ip: 10.0.0.3
+  :memory_size: 249577472
+  :private_ip: 192.168.56.212
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.212
+  :roles:
+  - Monitoring
+  :dns: monitoring01-dev.fstrz.net
+front01-dev:
+  :type: linux
+  :vagrant_memory: 256
+  :hostname: front01-dev
+  :secure_ip: 10.0.0.13
+  :additional_ips:
+  - 192.168.56.153
+  :memory_size: 249577472
+  :private_ip: 192.168.57.151
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.151
+  :roles:
+  - Front
+  - WebLoadBalancerMaster
+  - BstatsLoadBalancerMaster
+  - APILoadBalancerMaster
+  - SSL
+  :dns: front01-dev.fstrz.net
+api-dev:
+  :type: service
+  :private_broadcast_ip: 192.168.56.255
+  :public_broadcast_ip: 192.168.57.255
+  :private_ip: 192.168.56.106
+  :enabled: true
+  :public_ip: 192.168.57.186
+  :roles:
+  - APIService
+  :dns: api-dev.fstrz.net
+web01-dev:
+  :type: linux
+  :vagrant_memory: 512
+  :hostname: web01-dev
+  :secure_ip: 10.0.0.9
+  :memory_size: 521031680
+  :private_ip: 192.168.56.181
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.181
+  :roles:
+  - Web
+  - WebWorker
+  - WebDatabase
+  - FastApi
+  - Bstats
+  :dns: web01-dev.fstrz.net
+mongo02-dev:
+  :type: linux
+  :vagrant_memory: 512
+  :hostname: mongo02-dev
+  :secure_ip: 10.0.0.19
+  :memory_size: 513806336
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.163
+  :roles:
+  - MemStorage
+  - MongoDB
+  :dns: mongo02-dev.fstrz.net
+dns01-dev:
+  :type: linux
+  :vagrant_memory: 256
+  :hostname: dns01-dev
+  :secure_ip: 10.0.0.20
+  :memory_size: 249548800
+  :private_ip: 192.168.56.191
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.191
+  :roles:
+  - DNS
+  - ZookeeperServer
+  :dns: dns01-dev.fstrz.net
+logstash02-dev:
+  :type: linux
+  :vagrant_memory: 512
+  :hostname: logstash02-dev
+  :secure_ip: 10.0.0.21
+  :memory_size: 521031680
+  :private_ip: 192.168.56.232
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.232
+  :roles:
+  - LogstashServer
+  :dns: logstash02-dev.fstrz.net
+cache01-dev:
+  :type: linux
+  :vagrant_memory: 768
+  :hostname: cache01-dev
+  :secure_ip: 10.0.0.17
+  :memory_size: 778002432
+  :private_ip: 192.168.56.161
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.161
+  :roles:
+  - Cache
+  - ZookeeperServer
+  - Backup
+  :dns: cache01-dev.fstrz.net
+graphite02-dev:
+  :type: linux
+  :vagrant_memory: 256
+  :hostname: graphite02-dev
+  :secure_ip: 10.0.0.18
+  :memory_size: 249569280
+  :private_ip: 192.168.56.214
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.214
+  :roles:
+  - Graphite
+  :dns: graphite02-dev.fstrz.net
+proxy01-dev:
+  :type: linux
+  :vagrant_memory: 512
+  :hostname: proxy01-dev
+  :secure_ip: 10.0.0.7
+  :config: {}
+  :memory_size: 513777664
+  :private_ip: 192.168.56.141
+  :enabled: true
+  :cpu_count: 1
+  :public_ip: 192.168.56.141
+  :roles:
+  - Proxy
+  :dns: proxy01-dev.fstrz.net
+web-dev:
+  :type: service
+  :private_broadcast_ip: 192.168.56.255
+  :public_broadcast_ip: 192.168.57.255
+  :private_ip: 192.168.56.100
+  :enabled: true
+  :public_ip: 192.168.57.180
+  :roles:
+  - WebService
+  :dns: web-dev.fstrz.net

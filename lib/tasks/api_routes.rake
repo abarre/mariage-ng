@@ -5,7 +5,7 @@ namespace :api do
     params_str = ' params:'
     desc_limit = 45
     format = "%46s  %3s %7s %50s %12s:  %s"
-    API::Root.routes.each do |grape_route|
+    Root.routes.each do |grape_route|
       info = grape_route.instance_variable_get :@options
       puts format % [
         info[:description] ? info[:description][0..45] : '',
