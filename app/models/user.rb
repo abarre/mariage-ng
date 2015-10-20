@@ -25,6 +25,7 @@
 #  tokens                 :text
 #  created_at             :datetime
 #  updated_at             :datetime
+#  nickname               :string
 #
 # Indexes
 #

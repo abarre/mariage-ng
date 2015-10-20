@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  scope :v1 do
-    mount_devise_token_auth_for 'User', at: 'auth'
-  end
+  mount_devise_token_auth_for 'User', at: '/:version/users', :defaults => { :version => "v1" }
 
-  get '/docs', :to => "documentations#index"
+  get '/:version/docs', :to => "documentations#index"
 
   mount Root, at: '/'
 end

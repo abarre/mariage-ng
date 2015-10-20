@@ -760,9 +760,9 @@
   };
 
 
-  Auth.prototype.buildOAuthUrl = function(configName, params) {
+  Auth.prototype.buildOAuthUrl = function(providerPath, configName, params) {
     var config = this.getConfig(configName),
-        oAuthUrl = this.getConfig().apiUrl + config.authProviderPaths['github'] +
+        oAuthUrl = this.getConfig().apiUrl + providerPath +
           '?auth_origin_url='+encodeURIComponent(window.location.href) +
           '&config_name='+encodeURIComponent(configName || this.getCurrentConfigName());
 
@@ -791,7 +791,7 @@
 
     var config       = this.getConfig(opts.config),
         providerPath = config.authProviderPaths[opts.provider],
-        oAuthUrl     = this.buildOAuthUrl(opts.config, opts.params);
+        oAuthUrl     = this.buildOAuthUrl(providerPath, opts.config, opts.params);
 
     if (!providerPath) {
       throw 'jToker: providerPath not found for provider: '+opts.provider;
@@ -1197,7 +1197,8 @@
 
   // stub for mock overrides
   Auth.prototype.createPopup = function(url) {
-    return window.open(url);
+    // return window.open(url);
+    document.location.href= url;
   };
 
 

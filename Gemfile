@@ -23,6 +23,7 @@ gem 'rack-cors', :require => 'rack/cors'
 
 # Authentification third-party
 gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
 
 # disables the security feature of strong_params at the model layer,
 #allowing you the use of Grape's own params validation instead
@@ -44,7 +45,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 1.4.0'
 
   gem 'rspec-rails', '~> 3.1.0'
 

@@ -51,11 +51,24 @@
     <script type="text/javascript">
       jQuery(function () {
         $.auth.configure({
-          apiUrl: '/v1'
+          apiUrl:                '/<%= @version %>',
+          signOutPath:           '/users/sign_out',
+          emailSignInPath:       '/users/sign_in',
+          emailRegistrationPath: '/users',
+          accountUpdatePath:     '/users',
+          accountDeletePath:     '/users',
+          passwordResetPath:     '/users/password',
+          passwordUpdatePath:    '/users/password',
+          tokenValidationPath:   '/users/validate_token',
+          authProviderPaths: {
+            github:    '/users/github',
+            facebook:  '/users/facebook',
+            google:    '/users/google_oauth2'
+          }
         });
 
         window.swaggerUi = new SwaggerUi({
-          url: "/swagger_doc",
+          url: "/<%= @version %>/swagger_doc",
           dom_id: "swagger-ui-container",
           supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
           useJQuery: true,
@@ -66,11 +79,13 @@
 
             // $("[data-toggle='tooltip']").tooltip();
             $('#login').click(emailSignIn);
+            $('#fb-login').click(facebookSignIn);
+            $('#google-login').click(googleSignIn);
             $('#logout').click(signOut);
 
             if ($.auth.user.signedIn) {
-              if ($.auth.user.firstname) {
-                $('#user-info').html($.auth.user.firstname + " " + $.auth.user.name).show();
+              if ($.auth.user.name) {
+                $('#user-info').html($.auth.user.name).show();
               }
               else {
                 $('#user-info').html($.auth.user.email);
@@ -101,6 +116,14 @@
             $('#logged-in-div').show();
             $('#unlogged-div').hide();
           })
+        }
+
+        function facebookSignIn() {
+          $.auth.oAuthSignIn({provider: 'facebook'});
+        }
+
+        function googleSignIn() {
+          $.auth.oAuthSignIn({provider: 'google'});
         }
 
         function signOut() {
@@ -201,13 +224,6 @@
 
 });
 </script>
-
-<script type="text/javascript">
-  $(function () {
-            // $("[data-toggle='tooltip']").tooltip();
-          });
-</script>
-
 </head>
 
 <body class="page-docs" style="zoom: 1;">
@@ -223,13 +239,11 @@
           <div id="navbar-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
              <li class="li-why"><a id="logo" style="font-size: 25px; padding-left: 0px" href="/">Preparer son mariage API</a></li>
-
            </ul>
          </div>
        </div>
      </nav>
    </header>
-
    <section class="content">
     <div id="api2-explorer">
       <div class="swagger-section page-docs" style="zoom: 1">
